@@ -16,11 +16,6 @@ const { NotImplementedError } = require('../extensions/index.js');
  *
  */
 function repeater(str, options) {
-  // const repeatTimes = options.repeatTimes ?? 1;
-  // const separator = options.separator ?? '+';
-  // const addition = options.addition ?? (!str ? `${options.addition}` : '');
-  // const additionRepeatTimes = options.additionRepeatTimes ?? 0;
-  // const additionSeparator = options.additionSeparator ?? '|';
   const concat = (str, count = 0, separator) =>
     count === 0
       ? str
