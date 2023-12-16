@@ -10,11 +10,26 @@ const { NotImplementedError } = require('../extensions/index.js');
  * For aabbbc should return 2a3bc
  *
  */
-function encodeLine(/* str */) {
-  throw new NotImplementedError('Not implemented');
-  // remove line with error and write your code here
+function encodeLine(str) {
+  if (str.length <= 1) {
+    return str;
+  }
+
+  let result = str.split('');
+
+  for (let i = 2; i < result.length; i++) {
+    if (i === 2 && result[0] === result[1]) {
+      result[0] = 2;
+    }
+
+    if (result[i - 1] === result[i]) {
+      result[i - 1] = (Number.isNaN(+result[i - 2]) ? 1 : +result[i - 2]) + 1;
+      result[i - 2] = Number.isNaN(+result[i - 2]) ? result[i - 2] : null;
+    }
+  }
+  return result.join('');
 }
 
 module.exports = {
-  encodeLine
+  encodeLine,
 };
